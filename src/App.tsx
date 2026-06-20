@@ -1,21 +1,43 @@
-import React from 'react';
 import './App.scss';
+import { useEffect } from 'react';
+import { useLocation, Routes, Route } from 'react-router-dom';
+import {
+  HomePage,
+  PhonesPage,
+  TabletsPage,
+  AccessoriesPage,
+  FavouritesPage,
+  CartPage,
+  ProductDetailsPage,
+  NotFoundPage,
+} from './modules';
+import { Header, Footer } from './modules/shared/components';
 
-interface Props {
-  onClick: () => void;
-  children: React.ReactNode;
-}
+export const App = () => {
+  const { pathname } = useLocation();
 
-export const Provider: React.FC<Props> = React.memo(({ onClick, children }) => (
-  <button type="button" onClick={onClick}>
-    {children}
-  </button>
-));
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
-export const App: React.FC = () => {
   return (
-    <div className="starter">
-      <Provider onClick={() => ({})}>TodoList</Provider>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+
+        <Route path="/phones" element={<PhonesPage />} />
+
+        <Route path="/tablets" element={<TabletsPage />} />
+        <Route path="/accessories" element={<AccessoriesPage />} />
+
+        <Route path="/favourites" element={<FavouritesPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/:category/:itemId" element={<ProductDetailsPage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+      <Footer />
     </div>
   );
 };
