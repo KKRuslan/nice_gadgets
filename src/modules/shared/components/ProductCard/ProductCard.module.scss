@@ -8,14 +8,14 @@
   transition: all 0.3s ease;
   position: relative;
   box-sizing: border-box;
+  overflow: visible;
 
-  overflow: visible !important;
+  width: 100%;
+  margin: 0;
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    transform: translateY(
-      -4px
-    );
+    transform: translateY(-4px);
   }
 }
 
@@ -48,6 +48,7 @@
 }
 
 .title {
+  font-family: Mont, sans-serif;
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;

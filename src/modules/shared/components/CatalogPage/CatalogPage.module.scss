@@ -1,11 +1,10 @@
 .container {
   width: 100%;
-  max-width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
   box-sizing: border-box;
 }
-
 .breadcrumbs {
   display: flex;
   align-items: center;
@@ -44,14 +43,12 @@
 }
 
 .current {
-  font-family: Mont, sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #89939a;
 }
 
 .title {
-  font-family: Mont, sans-serif;
   font-size: 32px;
   font-weight: 800;
   line-height: 41px;
@@ -61,7 +58,6 @@
 }
 
 .modelsCount {
-  font-family: Mont, sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #89939a;
@@ -92,7 +88,6 @@
 }
 
 .label {
-  font-family: Mont, sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: #89939a;
@@ -102,7 +97,6 @@
   height: 40px;
   border: 1px solid #b4bdc2;
   padding: 0 36px 0 12px;
-  font-family: Mont, sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: #313237;
@@ -127,13 +121,24 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 272px) !important;
 
-  justify-content: flex-start !important;
-
-  gap: 40px 16px !important;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px 16px;
   margin-bottom: 40px;
   width: 100%;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 24px;
+  }
 }
 
 .pagination {
@@ -150,7 +155,6 @@
   border: 1px solid #b4bdc2;
   background-color: #fff;
   color: #313237;
-  font-family: Mont, sans-serif;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
@@ -222,5 +226,4 @@
     max-width: 1200px;
     padding: 0 32px;
   }
-
 }

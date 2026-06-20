@@ -43,9 +43,7 @@ export const FavouritesPage: React.FC = () => {
             <p className={styles.count}>{favourites.length} items</p>
             <div className={styles.grid}>
               {favourites.map((product: Product) => (
-                <div key={product.id} className={styles.gridItem}>
-                  <ProductCard product={product} />
-                </div>
+                <ProductCard key={product.id} product={product} />
               ))}
             </div>
           </>
